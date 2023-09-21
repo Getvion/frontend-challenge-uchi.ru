@@ -1,35 +1,31 @@
-import { createSlice } from '@reduxjs/toolkit';
-import type { PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-export interface CounterState {
-  value: number;
-}
+import { ICatObj, ICatsState } from '../../@types/state';
+// eslint-disable-next-line import/no-cycle
+import { RootState } from '../store';
 
-const initialState: CounterState = {
-  value: 0
+const initialState: ICatsState = {
+  results: [],
+  isLoaded: true
 };
 
 export const counterSlice = createSlice({
-  name: 'counter',
+  name: 'favorite',
   initialState,
   reducers: {
-    increment: (state) => {
-      // Redux Toolkit allows us to write "mutating" logic in reducers. It
-      // doesn't actually mutate the state because it uses the Immer library,
-      // which detects changes to a "draft state" and produces a brand new
-      // immutable state based off those changes
-      state.value += 1;
+    addFavoriteCat: (state, action: PayloadAction<ICatObj>) => {
+      state.results = [...state.results, action.payload];
     },
-    decrement: (state) => {
-      state.value -= 1;
-    },
-    incrementByAmount: (state, action: PayloadAction<number>) => {
-      state.value += action.payload;
+    removeFavoriteCat: (state, action: PayloadAction<ICatObj>) => {
+      const catObj = action.payload;
+      state.results = state.results.filter((cat) => cat.id !== catObj.id);
     }
   }
 });
 
-// Action creators are generated for each case reducer function
-export const { increment, decrement, incrementByAmount } = counterSlice.actions;
+export const { addFavoriteCat, removeFavoriteCat } = counterSlice.actions;
 
-export const counterReducer = counterSlice.reducer;
+export const favoriteReducer = counterSlice.reducer;
+
+// selectors
+export const selectFavoriteCats = (state: RootState) => state.favorite;
