@@ -1,6 +1,15 @@
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
 
 import { ICatObj } from '../../@types/state';
+import { useAppDispatch } from '../../hooks/useAppDispath';
+import {
+  addFavoriteCat,
+  // getFavoriteCats,
+  removeFavoriteCat,
+  // saveFavoriteCats,
+  selectFavoriteCats
+} from '../../store/features/favoriteSlice';
 
 import styles from './Card.module.scss';
 
@@ -11,9 +20,23 @@ interface IProps {
 type CardStates = 'idle' | 'hover' | 'click-heart' | 'hover-heart';
 
 export const Card = ({ cardData }: IProps) => {
-  const { url } = cardData;
+  const { url, id } = cardData;
+
+  const dispatch = useAppDispatch();
+  const favoriteCats = useSelector(selectFavoriteCats);
 
   const [cardState, setCardState] = useState<CardStates>('idle');
+
+  const onButtonClick = () => {
+    setCardState('click-heart');
+
+    // если карточка с id нашей карточки не найдена, то добавить в избранное, иначе удалить из избранного
+    if (!favoriteCats.results.find((cat) => cat.id === id)) {
+      dispatch(addFavoriteCat(cardData));
+    } else {
+      dispatch(removeFavoriteCat(cardData));
+    }
+  };
 
   return (
     <div
@@ -26,7 +49,7 @@ export const Card = ({ cardData }: IProps) => {
       <button
         className={styles.heart}
         onMouseEnter={() => setCardState('hover-heart')}
-        onClick={() => setCardState('click-heart')}
+        onClick={onButtonClick}
       >
         {cardState === 'hover' && (
           <svg width='48' height='48' viewBox='0 0 48 48' fill='none'>
