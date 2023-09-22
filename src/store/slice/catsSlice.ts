@@ -1,13 +1,17 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 import { ICatsState } from '../../@types/state';
-// eslint-disable-next-line import/no-cycle
 import { RootState } from '../store';
 
-export const fetchCats = createAsyncThunk('loadCats', async () =>
-  fetch(
-    'https://api.thecatapi.com/v1/images/search?limit=15&api_key=live_q76O5Lbob7487F5ElZV7kM966pTN7q9tmweCVRGfeuaRYldm50EtLGH2s6HZ4uRv'
-  ).then((resp) => resp.json())
+const requestData = {
+  baseUrl: 'https://api.thecatapi.com/v1/images/search',
+  key: 'live_q76O5Lbob7487F5ElZV7kM966pTN7q9tmweCVRGfeuaRYldm50EtLGH2s6HZ4uRv'
+};
+
+export const fetchCats = createAsyncThunk('loadCats', async (pageNubmer: number) =>
+  fetch(`${requestData.baseUrl}?limit=15&page=${pageNubmer}&api_key=${requestData.key}`).then(
+    (resp) => resp.json()
+  )
 );
 
 const initialState: ICatsState = {
@@ -22,7 +26,7 @@ const catsSclie = createSlice({
   extraReducers: (bulilder) => {
     bulilder
       .addCase(fetchCats.fulfilled, (state, action) => {
-        state.results = action.payload;
+        state.results = [...state.results, ...action.payload];
         state.isLoaded = true;
       })
       .addCase(fetchCats.pending, (state) => {

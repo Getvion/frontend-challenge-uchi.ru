@@ -1,7 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import { ICatObj, ICatsState } from '../../@types/state';
-// eslint-disable-next-line import/no-cycle
 import { RootState } from '../store';
 
 const initialState: ICatsState = {

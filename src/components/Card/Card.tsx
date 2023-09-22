@@ -9,7 +9,7 @@ import {
   removeFavoriteCat,
   // saveFavoriteCats,
   selectFavoriteCats
-} from '../../store/features/favoriteSlice';
+} from '../../store/slice/favoriteSlice';
 
 import styles from './Card.module.scss';
 

@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 
-import { catsReducer } from './features/catsSlice';
-import { favoriteReducer } from './features/favoriteSlice';
+import { catsReducer } from './slice/catsSlice';
+import { favoriteReducer } from './slice/favoriteSlice';
 
 export const store = configureStore({
   reducer: {

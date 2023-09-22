@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 
 import { Cards, Loader } from '../../components';
 import { useAppDispatch } from '../../hooks/useAppDispath';
-import { fetchCats, selectCats } from '../../store/features/catsSlice';
+import { fetchCats, selectCats } from '../../store/slice/catsSlice';
 
 export const Main = () => {
   const dispatch = useAppDispatch();
