@@ -5,3 +5,19 @@
   margin-top: 50px;
   margin-bottom: 48px;
 }
+
+@media (max-width: 1316px) {
+  .cards {
+    padding: 0 10px;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 740px) {
+  .cards {
+    display: flex;
+    justify-content: center;
+  }
+}

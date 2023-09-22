@@ -49,6 +49,7 @@ export const Card = ({ cardData }: IProps) => {
       <button
         className={styles.heart}
         onMouseEnter={() => setCardState('hover-heart')}
+        onMouseLeave={() => setCardState('hover')}
         onClick={onButtonClick}
       >
         {cardState === 'hover' && (
