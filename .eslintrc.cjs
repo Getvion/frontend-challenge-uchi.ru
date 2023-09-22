@@ -42,6 +42,7 @@ module.exports = {
     'no-param-reassign': 0,
 
     'import/order': 0,
+    'import/no-cycle': 0,
     'simple-import-sort/exports': 1,
     'simple-import-sort/imports': [
       1,
