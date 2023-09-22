@@ -1,4 +1,4 @@
-@import 'node_modules/modern-normalize/modern-normalize.css';
+@import 'modern-normalize';
 
 *,
 *::before,
@@ -29,5 +29,5 @@ button {
 
 .container {
   max-width: 1317px;
-  margin: 0 auto;
+  margin: 64px auto 0;
 }
