@@ -1,6 +1,5 @@
 import { ICatsState } from '../../@types/state';
-// eslint-disable-next-line import/no-cycle
-import { Card, Loader } from '..';
+import { Card } from '..';
 
 import styles from './Cards.module.scss';
 
@@ -10,10 +9,8 @@ interface IProps {
 
 export const Cards = ({ cardsData }: IProps) => (
   <div className={styles.cards}>
-    {cardsData.isLoaded ? (
-      cardsData.results.map((cat) => <Card key={cat.id} cardData={cat} />)
-    ) : (
-      <Loader />
-    )}
+    {cardsData.results.map((cat) => (
+      <Card key={cat.id + cat.url} cardData={cat} />
+    ))}
   </div>
 );
