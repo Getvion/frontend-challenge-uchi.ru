@@ -18,20 +18,7 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true,
-    "paths": {
-      "@common": ["./common"],
-      "@common/*": ["./common/*"],
-      "@pages": ["./pages"],
-      "@features/*": ["./features/*"],
-      "@assets/*": ["./assets/*"],
-      "@utils/api": ["./utils/api"],
-      "@utils/firebase": ["./utils/firebase"],
-      "@utils/constants": ["./utils/constants"],
-      "@utils/helpers": ["./utils/helpers"],
-      "@utils/contexts": ["./utils/contexts"],
-      "@utils/hooks": ["./utils/hooks"]
-    }
+    "noFallthroughCasesInSwitch": true
   },
 
   "include": ["src"],
