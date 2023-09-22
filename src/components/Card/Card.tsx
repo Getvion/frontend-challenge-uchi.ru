@@ -5,9 +5,7 @@ import { ICatObj } from '../../@types/state';
 import { useAppDispatch } from '../../hooks/useAppDispath';
 import {
   addFavoriteCat,
-  // getFavoriteCats,
   removeFavoriteCat,
-  // saveFavoriteCats,
   selectFavoriteCats
 } from '../../store/slice/favoriteSlice';
 
