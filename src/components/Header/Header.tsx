@@ -5,7 +5,7 @@ import styles from './Header.module.scss';
 export const Header = () => (
   <header className={styles.header}>
     <nav className={styles.nav}>
-      <NavLink className={styles.nav__link} to='/frontend-challenge-uchi.ru/main'>
+      <NavLink className={styles.nav__link} to='/frontend-challenge-uchi.ru/'>
         Все котики
       </NavLink>
       <NavLink className={styles.nav__link} to='/frontend-challenge-uchi.ru/favorite'>

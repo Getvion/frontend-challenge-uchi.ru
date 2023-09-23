@@ -8,7 +8,7 @@ export const App = () => (
     <Header />
     <div className='container'>
       <Routes>
-        <Route path='/frontend-challenge-uchi.ru/main' element={<Main />} />
+        <Route path='/frontend-challenge-uchi.ru/' element={<Main />} />
         <Route path='/frontend-challenge-uchi.ru/favorite' element={<Favorites />} />
       </Routes>
     </div>
