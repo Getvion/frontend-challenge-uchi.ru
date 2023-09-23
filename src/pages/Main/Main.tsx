@@ -26,7 +26,7 @@ export const Main = () => {
       <InfiniteScroll
         dataLength={cats.results.length}
         next={fetchMoreCats}
-        hasMore // Replace with a condition based on your data source
+        hasMore
         loader={<Loader />}
         endMessage={<p>No more data to load.</p>}
       >
