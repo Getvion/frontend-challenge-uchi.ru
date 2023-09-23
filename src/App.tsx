@@ -8,8 +8,8 @@ export const App = () => (
     <Header />
     <div className='container'>
       <Routes>
-        <Route path='/' element={<Main />} />
-        <Route path='/favorite' element={<Favorites />} />
+        <Route path='/frontend-challenge-uchi.ru/main' element={<Main />} />
+        <Route path='/frontend-challenge-uchi.ru/favorite' element={<Favorites />} />
       </Routes>
     </div>
   </>
